@@ -2,7 +2,7 @@ import './style.css';
 import initPage from './init-page.js';
 
 var categories = [];
-initPage("items");
+initPage(categories);
 //initCategories();
 
 if (categories.length==0){
