@@ -1,4 +1,4 @@
-import renderItemProjects from './render-item-projects.js';
+import createProjects from './create-projects.js';
 const createCategorie = function (categories){
 	//module.exports = function (){
 	const winCat = document.getElementById("winCategorie");
@@ -16,8 +16,19 @@ const createCategorie = function (categories){
 		item.style.float = "left";
 		navCategories.appendChild(item);
 		categories.push(catName);
-		//console.log(categories);
-		item.addEventListener('click', () => renderItemProjects(catName));
+		if (document.getElementById("addPrj")== null){
+			const projectCat = document.getElementById("body-item");
+			const prj = document.createElement("button");
+			prj.id = "addPrj";
+			prj.innerHTML = "Add project";
+			prj.style.float = "right";
+			projectCat.appendChild(prj);
+			prj.addEventListener('click', () => createProjects(catName));
+		}else{
+			const prj = document.getElementById("addPrj");
+			prj.addEventListener('click', () => createProjects(catName));
+		}
+		item.addEventListener('click', () => renderProjects(catName));
 	
 	}
 	
