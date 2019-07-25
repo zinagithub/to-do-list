@@ -1,5 +1,9 @@
 import createProjects from './create-projects.js';
-const createCategorie = function (categories){
+import {setCategories , getMyCategories} from './local-storage';
+import renderProjects from './render-prj.js';
+//import * as catObj  from './data.js';
+
+const createCategorie = function (){
 	//module.exports = function (){
 	const winCat = document.getElementById("winCategorie");
 	const container = document.getElementById("container");
@@ -15,7 +19,10 @@ const createCategorie = function (categories){
 		item.innerHTML = catName;
 		item.style.float = "left";
 		navCategories.appendChild(item);
+		let categories = getMyCategories();
 		categories.push(catName);
+		//console.log("zina : "+categories);
+		setCategories(categories);
 		if (document.getElementById("addPrj")== null){
 			const projectCat = document.getElementById("body-item");
 			const prj = document.createElement("button");
@@ -33,4 +40,5 @@ const createCategorie = function (categories){
 	}
 	
 }
+
 export default createCategorie;

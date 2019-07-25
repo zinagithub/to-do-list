@@ -1,7 +1,7 @@
 import createCategorie from './create-cat.js';
 //var createCategorie = require('./create-cat.js');
-const addCategorie = function(categories){
-	
+const addCategorie = function(){
+
 	const content = document.getElementById('container');
 	if (document.getElementById("winCategorie")== null){
 		const inputDiv = document.createElement("div");
@@ -26,12 +26,12 @@ const addCategorie = function(categories){
 		but.id = "saveCat";
 		but.innerHTML = "save";
 		inputDiv.appendChild(but);
-		but.addEventListener('click', () => createCategorie(categories));
+		but.addEventListener('click', () => createCategorie());
 	}else {
 		const inputDiv = document.getElementById("winCategorie");
 		const but = document.getElementById("saveCat");
 		inputDiv.style.display = "block";
-		but.addEventListener('click', () => createCategorie(categories));
+		but.addEventListener('click', () => createCategorie());
 	}
 	
 	
