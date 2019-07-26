@@ -18,22 +18,31 @@ const createCategorie = function (){
 		item.id = catName;
 		item.innerHTML = catName;
 		item.style.float = "left";
+  		item.style.fontSize = "15px";
+  		item.style.margin = "3px auto";
+  		item.style.padding = "10px";
+        item.style.borderRadius = "15px";
 		navCategories.appendChild(item);
-		let categories = getMyCategories();
+		var categories = getMyCategories();
 		categories.push(catName);
 		//console.log("zina : "+categories);
 		setCategories(categories);
 		if (document.getElementById("addPrj")== null){
-			const projectCat = document.getElementById("body-item");
-			const prj = document.createElement("button");
-			prj.id = "addPrj";
-			prj.innerHTML = "Add project";
-			prj.style.float = "right";
-			projectCat.appendChild(prj);
-			prj.addEventListener('click', () => createProjects(catName));
+			const projectCat = document.getElementById("header");
+      		const prj = document.createElement("button");
+	        prj.id = "addPrj";
+	        prj.innerHTML = "To Do<i class='far fa-plus-square'></i>";
+	        prj.marginTop = "-20px";
+	        prj.style.float = "right";
+	        prj.style.fontSize = "15px";
+	        prj.style.float = "right";
+	        prj.style.margin = "3px 10px auto";
+	        prj.style.padding = "10px";
+	        projectCat.appendChild(prj);
+	        prj.addEventListener('click', () => createProjects());
 		}else{
 			const prj = document.getElementById("addPrj");
-			prj.addEventListener('click', () => createProjects(catName));
+			prj.addEventListener('click', () => createProjects());
 		}
 		item.addEventListener('click', () => renderProjects(catName));
 	

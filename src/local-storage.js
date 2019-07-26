@@ -15,6 +15,9 @@ export const getMyCategories = () => {
 }
 
 export const setMyToDoList = (myToDoList) => {
+  //if (localStorage.getItem("myToDoList"))
+    //localStorage.removeItem("myToDoList");
+
   let myToDoList_serialized =JSON.stringify(myToDoList)
   localStorage.setItem("myToDoList",myToDoList_serialized);
 }
