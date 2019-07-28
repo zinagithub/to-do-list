@@ -2,6 +2,64 @@ body{
 	background: #DDD;
 }
 
+.headerStyle {
+	width :80%;
+    height:50px;
+    border :1px solid #900;
+    border-radius :15px;
+    margin : 0 auto;
+    color :black;
+ }
+ .headerStyle p {
+ 	text-align  :left;
+    margin-top : 5px;
+    margin-left :5px;
+    font-size :35px;
+    display : inline-block;
+ }
+.headerStyle button {
+	font-size : 15px;
+    float : right;
+    margin : 3px 10px auto;
+    padding : 10px;
+
+}
+.catButton {
+	float :left;
+    font-size : 15px;
+    margin : 3px auto;
+    padding : 10px;
+    border-radius : 15px;
+}
+#body-item{
+	width : 80%;
+    height :auto;
+    margin : -26px auto;
+    color : gray;
+    border : 1px solid #900;
+    border-radius : 15px;
+}
+#winCategorie , #winDelCat{
+	width : 350px;
+	height :200px;
+	background :orange;
+    position :fixed;
+	top :70px;
+	left :40%;
+	border-radius :5px;
+}
+#winCategorie p {
+	font-size :30px;
+	color :white;
+	text-align :center;
+}
+.catShape{
+	float :left;
+    font-size :15px;
+  	margin :3px auto;
+  	padding :10px;
+    border-radius :5px;
+}
 table {
   width:100%;
 }
@@ -9,4 +67,13 @@ td {
   padding: 15px;
   text-align: left;
   
+}
+.cut{
+
+}
+.update{
+
+}
+.cut :hover , .update :hover{
+	color : red;
 }

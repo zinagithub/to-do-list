@@ -1,5 +1,5 @@
 import Project from './data.js';
-import renderProjects from './render-prj.js';
+import {renderProjects} from './render-prj';
 import {getMyCategories , getMyToDoList , setMyToDoList} from './local-storage';
 const createProjects = function (){
 	inputToDo()
@@ -82,7 +82,6 @@ function boxInputToDo(){
 
 
 	const priority = document.createElement("select");
-	//priority.style.display = "block"
 	priority.style.margin = "0px auto 5px 33px"
 	priority.id = "priority";
 	const height = document.createElement("option");

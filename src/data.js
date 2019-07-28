@@ -1,4 +1,4 @@
-
+import {setMyToDoList , getMyToDoList} from './local-storage';
 import './style.css';
 export default class Project {
   constructor(title, description, dueDate ,priority,categorie) {
@@ -10,18 +10,15 @@ export default class Project {
     this.categorie = categorie
   }
 
-  deleteProject() {
+  delToDo(key) {
     
   }
-  renderProject() {
-    //console.log(this.categorie)
+  renderProject(key) {
     const bodyItem = document.getElementById("body-item");
-    //bodyItem.innerHTML = "";
-    //bodyItem.style.background = "green";
+    console.log("Hi zina")
     if (document.getElementById("table") == null){
       const table = document.createElement("table")
       table.id = "table"
-      //table.innerHTML = ""
       bodyItem.appendChild(table)
       const row1 = document.createElement('tr')
       table.appendChild(row1)
@@ -56,6 +53,7 @@ export default class Project {
     }
 
       const row2 = document.createElement('tr')
+      //row2.id = key.toString()+this.categorie
       table.appendChild(row2)
       const col10 = document.createElement('td')
       col10.innerHTML = this.priority
@@ -75,17 +73,25 @@ export default class Project {
       row2.appendChild(col33)
 
       const col44 = document.createElement('td')
+      //col44.id = "update"
+      col44.classList.add ("update")
+      //col44.addEventListener('click', this.editToDo());
       col44.innerHTML = "<i class='fas fa-edit'></i>"
       row2.appendChild(col44)
 
       const col55 = document.createElement('td')
+      col55.id = key+"cut"
+      col55.classList.add("cut")
       col55.innerHTML = '<i class="fas fa-cut"></i>' 
       row2.appendChild(col55)
+      
     
   }
-  updateProject() {
-
+  editToDo() {
+    console.log("edit" )
   }
   
 
 }
+
+

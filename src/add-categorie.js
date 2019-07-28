@@ -6,21 +6,10 @@ const addCategorie = function(){
 	if (document.getElementById("winCategorie")== null){
 		const inputDiv = document.createElement("div");
 		inputDiv.id = "winCategorie";
-		inputDiv.style.width = "350px";
-		inputDiv.style.height = "200px";
-		inputDiv.style.background = "orange";
-		inputDiv.style.position = "fixed";
-		inputDiv.style.top = "70px";
-		inputDiv.style.left = "40%";
-		inputDiv.style.borderRadius = "15px";
 		inputDiv.style.display = "block";
 		content.appendChild(inputDiv);
 
 		const titleBox = document.createElement("p");
-		titleBox.style.fontSize = "30px";
-		titleBox.style.color = "white"
-		//titleBox.style.padding = "10px"
-		titleBox.style.textAlign = "center"
 		titleBox.innerHTML = "Add Project"
 		inputDiv.appendChild(titleBox)
 
