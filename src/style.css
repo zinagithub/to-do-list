@@ -95,3 +95,13 @@ td {
 .cut :hover , .update :hover{
 	color : red;
 }
+
+.nav-categories {
+    width: 80%;
+    height: 50px;
+    margin: 20px auto;
+}
+
+.hidden {
+    display: none;
+}

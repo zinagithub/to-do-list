@@ -1,17 +1,17 @@
 import createToDo from './create-todo.js';
-import {setCategories , getMyCategories} from './local-storage';
-import {renderProjects, changeCatColor} from './render-prj';
+import { setCategories , getMyCategories } from './local-storage';
+import { renderProjects, changeCatColor } from './render-prj';
 
 
-const createCategorie = function (){
+const createCategory = function (){
 	
-	const winCat = document.getElementById("winCategorie");
+	const winCat = document.getElementById("winCategory");
 	const container = document.getElementById("container");
 	const saveBut = document.getElementById("saveCat");
 	const catName = document.getElementById("catName").value;
 	console.log("catName "+catName)
 	winCat.style.display = "none";
-	//saveBut.removeEventListener('click', () => createCategorie())
+	//saveBut.removeEventListener('click', () => createCategory())
 	const navCategories = document.getElementById("navCategories");
 	
 	if (document.getElementById(catName)==null){
@@ -42,4 +42,4 @@ const createCategorie = function (){
 	
 }
 
-export default createCategorie;
+export default createCategory;
