@@ -53,12 +53,30 @@ body{
 	color :white;
 	text-align :center;
 }
-.catShape{
+/*.catShape{
 	float :left;
     font-size :15px;
   	margin :3px auto;
   	padding :10px;
     border-radius :5px;
+}*/
+
+#inputDiv, #editDiv {
+    width :400px;
+    height :300px;
+    background: orange;
+    position :fixed;
+    top : 70px;
+    left :30%;
+    border-radius : 15px;
+    display : "none"
+}
+
+#inputDiv p, #editDiv p{
+    font-size : 30px;
+    color : white;
+    padding : 10px;
+    text-align :center;
 }
 table {
   width:100%;

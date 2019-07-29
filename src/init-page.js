@@ -2,19 +2,19 @@ import './style.css';
 import addCategorie from './add-categorie.js';
 import delCategorie from './del-categorie.js';
 import {getMyCategories} from './local-storage';
-import createProjects from './create-projects.js';
+import createToDo from './create-todo.js';
 import {renderProjects } from './render-prj';
 
 let categories = getMyCategories();
 
-var initPage = function (){
+var renderPage = function (){
   
   createHeader()
   createNavigation()
-  renderLocalCategories()
+  renderAllProjects()
   createBodyItem()
   createAddPrjButton()
-  renderProjectFirstCat()
+  renderToDoFirstPrj()
 }
 
 function createHeader(){
@@ -51,10 +51,9 @@ function createNavigation(){
   content.appendChild(newDiv1);
 }
 
-function renderLocalCategories(){
+function renderAllProjects(){
   const navCategories = document.getElementById("navCategories");
    categories = getMyCategories()
-
     categories.forEach(function(val){
       const item = document.createElement("button");
       item.id = val;
@@ -76,7 +75,7 @@ function createBodyItem(){
   newDiv2.id = "body-item";
   content.appendChild(newDiv2);
 }
-function renderProjectFirstCat(){
+function renderToDoFirstPrj(){
   if (categories.length > 0){
   let catName  = categories[0]
   renderProjects(catName);
@@ -91,8 +90,8 @@ function createAddPrjButton(){
       prj.id = "addPrj";
       prj.innerHTML = "To Do<i class='far fa-plus-square'></i>";
       projectCat.appendChild(prj);
-      prj.addEventListener('click', () => createProjects());
+      prj.addEventListener('click', () => createToDo());
     }
    } 
 }
-export default initPage
+export default renderPage

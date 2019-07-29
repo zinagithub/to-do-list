@@ -13,7 +13,7 @@ const delCategorie = function(){
 		var categories = getMyCategories();
 		//console.log(categories);
 		const catNameinfo = document.createElement("select");
-		catNameinfo.id = "catNameinfo";
+		catNameinfo.id = "PrjToDel";
 		catNameinfo.style.margin = "0 auto 5px 5px"
 		//catNameinfo.style.display = "block"
 		categories.forEach(function(val){
@@ -51,7 +51,7 @@ const delCategorie = function(){
 
 		var categories = getMyCategories();
 		//console.log(categories);
-		const catNameinfo = document.getElementById("catNameinfo");
+		const catNameinfo = document.getElementById("PrjToDel");
 		catNameinfo.innerHTML = ""
 		//catNameinfo.id = "catNameinfo";
 		//catNameinfo.style.margin = "0 auto 5px 5px"
@@ -75,26 +75,34 @@ const delCategorie = function(){
 const confDelCat = function()
 {
 	const navCategories = document.getElementById("navCategories");
-	const catNameinfo = document.getElementById("catNameinfo").value;
+	const catNameinfo = document.getElementById("PrjToDel").value;
 	const child = document.getElementById(catNameinfo)
 	if (confirm("Are you sure to Remove "+catNameinfo)){
 		let categories = getMyCategories()
 		let elmToDel = navCategories.removeChild(child);
-		alert(categories.indexOf(catNameinfo))
+		//alert(categories.indexOf(catNameinfo))
 		categories.splice(categories.indexOf(catNameinfo),1)
 		
 		setCategories(categories)
+
+		let allToDo = getMyToDoList()
+  		console.log(allToDo)
+  		for (var i = 0;i < allToDo.length;i++){
+  			if (allToDo[i].categorie == catNameinfo){
+  				//alert("yes i found it")
+  				allToDo.splice(i,1)
+  			}
+  			//alert("no  i dont found it")
+  		}
+  		setMyToDoList(allToDo)
 		escDelCat()
 		if (categories.length > 0){
   		let catName  = categories[0]
   		renderProjects(catName);
-  		let allToDo = getMyToDoList()
-  		for (var i = 0;i < allToDo.length;i++){
-  			if (allToDo[i].categorie == catNameinfo){
-  				alert("i found it")
-  			}
   		}
-
+  		else{
+  			const bodyItem = document.getElementById("body-item");
+  			bodyItem.innerHTML = ""
   		}
 	}
 }

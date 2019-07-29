@@ -1,4 +1,4 @@
-import createProjects from './create-projects.js';
+import createToDo from './create-todo.js';
 import {setCategories , getMyCategories} from './local-storage';
 import {renderProjects, changeCatColor} from './render-prj';
 
@@ -9,8 +9,9 @@ const createCategorie = function (){
 	const container = document.getElementById("container");
 	const saveBut = document.getElementById("saveCat");
 	const catName = document.getElementById("catName").value;
+	console.log("catName "+catName)
 	winCat.style.display = "none";
-	saveBut.removeEventListener('click', () => createCategorie())
+	//saveBut.removeEventListener('click', () => createCategorie())
 	const navCategories = document.getElementById("navCategories");
 	
 	if (document.getElementById(catName)==null){
@@ -30,7 +31,7 @@ const createCategorie = function (){
 	        prj.id = "addPrj";
 	        prj.innerHTML = "To Do<i class='far fa-plus-square'></i>";
 	        projectCat.appendChild(prj);
-	        prj.addEventListener('click', () => createProjects());
+	        prj.addEventListener('click', () => createToDo());
 		}else{
 			const prj = document.getElementById("addPrj");
 			prj.addEventListener('click', () => createProjects());

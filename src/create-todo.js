@@ -1,7 +1,8 @@
+import './style.css';
 import Project from './data.js';
 import {renderProjects} from './render-prj';
 import {getMyCategories , getMyToDoList , setMyToDoList} from './local-storage';
-const createProjects = function (){
+const createToDo = function (){
 	inputToDo()
 	
 }
@@ -40,20 +41,20 @@ function boxInputToDo(){
 	const content = document.getElementById('container');
 	const inputDiv = document.createElement("div");
 	inputDiv.id = "inputDiv";
-	inputDiv.style.width = "400px";
+	/*inputDiv.style.width = "400px";
 	inputDiv.style.height = "300px";
 	inputDiv.style.background = "orange";
 	inputDiv.style.position = "fixed";
 	inputDiv.style.top = "70px";
 	inputDiv.style.left = "30%";
-	inputDiv.style.borderRadius = "15px";
+	inputDiv.style.borderRadius = "15px";*/
 	inputDiv.style.display = "block";
 
 	const titleBox = document.createElement("p");
-	titleBox.style.fontSize = "30px";
+	/*titleBox.style.fontSize = "30px";
 	titleBox.style.color = "white"
 	titleBox.style.padding = "10px"
-	titleBox.style.textAlign = "center"
+	titleBox.style.textAlign = "center"*/
 	titleBox.innerHTML = "Add To Do"
 	inputDiv.appendChild(titleBox)
 
@@ -103,7 +104,7 @@ function boxInputToDo(){
 
 
 		var categories = getMyCategories();
-		console.log(categories);
+		//console.log(categories);
 		const catNameinfo = document.createElement("select");
 		catNameinfo.id = "catNameinfo";
 		catNameinfo.style.margin = "0 auto 5px 5px"
@@ -133,7 +134,7 @@ function boxInputToDo(){
 		butSave.style.margin = "20px auto 15px 100px"
 		butSave.innerHTML = "save";
 		inputDiv.appendChild(butSave);
-		butSave.addEventListener('click', () => savePrj(),false);
+		butSave.addEventListener('click', () => savePrj());
 
 
 		const butEsc = document.createElement("button");
@@ -149,7 +150,7 @@ const escPrj = function(){
 	const inputDiv = document.getElementById("inputDiv");
 	removeEventListener('click', () => escPrj());
 	inputDiv.style.display = "none";
-	return false
+	//return false
 }
 
 const savePrj = function(){
@@ -174,6 +175,6 @@ const savePrj = function(){
 		//console.log(prj);
 	}
 	
-   return true
+  // return true
 }
-export default createProjects;
+export default createToDo;
