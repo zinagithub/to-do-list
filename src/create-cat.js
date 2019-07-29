@@ -34,7 +34,7 @@ const createCategorie = function (){
 	        prj.addEventListener('click', () => createToDo());
 		}else{
 			const prj = document.getElementById("addPrj");
-			prj.addEventListener('click', () => createProjects());
+			prj.addEventListener('click', () => createToDo());
 		}
 		item.addEventListener('click', () => renderProjects(catName));
 	

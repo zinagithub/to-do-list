@@ -87,13 +87,12 @@ const confDelCat = function()
 
 		let allToDo = getMyToDoList()
   		console.log(allToDo)
-  		for (var i = 0;i < allToDo.length;i++){
-  			if (allToDo[i].categorie == catNameinfo){
-  				//alert("yes i found it")
-  				allToDo.splice(i,1)
-  			}
-  			//alert("no  i dont found it")
-  		}
+
+  		for(var i = allToDo.length - 1; i >= 0; i--) {
+    			if(allToDo[i].categorie == catNameinfo) {
+       				allToDo.splice(i, 1);
+    			}
+		}
   		setMyToDoList(allToDo)
 		escDelCat()
 		if (categories.length > 0){
