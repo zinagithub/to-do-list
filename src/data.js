@@ -48,49 +48,48 @@ export default class Project {
       col5.innerHTML = ""
       row1.appendChild(col5)
 
-    }else {
+    } else {
       const table = document.getElementById("table")
       
     }
     
-      const row2 = document.createElement('tr')
-      //row2.id = key.toString()+this.categorie
-      table.appendChild(row2)
-      const col10 = document.createElement('td')
-      col10.innerHTML = this.priority
-      row2.appendChild(col10)
+    const row2 = document.createElement('tr')
+    //row2.id = key.toString()+this.categorie
+    table.appendChild(row2)
+    const col10 = document.createElement('td')
+    col10.innerHTML = this.priority
+    row2.appendChild(col10)
 
-      const col11 = document.createElement('td')
-      col11.innerHTML = this.title
-      row2.appendChild(col11)
+    const col11 = document.createElement('td')
+    col11.innerHTML = this.title
+    row2.appendChild(col11)
 
-      const col22 = document.createElement('td')
-      col22.innerHTML = this.description
-      row2.appendChild(col22)
+    const col22 = document.createElement('td')
+    col22.innerHTML = this.description
+    row2.appendChild(col22)
 
 
-      const col33 = document.createElement('td')
-      col33.innerHTML = this.dueDate
-      row2.appendChild(col33)
+    const col33 = document.createElement('td')
+    col33.innerHTML = this.dueDate
+    row2.appendChild(col33)
 
-      const col44 = document.createElement('td')
-      col44.id = key+"update"
-      col44.classList.add ("update")
-      //col44.addEventListener('click', this.editToDo());
-      col44.innerHTML = "<i class='fas fa-edit'></i>"
-      row2.appendChild(col44)
+    const col44 = document.createElement('td')
+    col44.id = key+"update"
+    col44.classList.add ("update")
+    //col44.addEventListener('click', this.editToDo());
+    col44.innerHTML = "<i class='fas fa-edit'></i>"
+    row2.appendChild(col44)
 
-      const col55 = document.createElement('td')
-      col55.id = key+"cut"
-      col55.classList.add("cut")
-      col55.innerHTML = '<i class="fas fa-cut"></i>' 
-      row2.appendChild(col55)
-      
-    
+    const col55 = document.createElement('td')
+    col55.id = key+"cut"
+    col55.classList.add("cut")
+    col55.innerHTML = '<i class="fas fa-cut"></i>' 
+    row2.appendChild(col55)
   }
+
   editToDo(key) {
     
-    if (document.getElementById("editDiv") == null){
+    if (document.getElementById("editDiv") === null) {
       const content = document.getElementById('container');
       const editDiv = document.createElement("div");
       editDiv.id = "editDiv";
@@ -119,10 +118,7 @@ export default class Project {
       descripInput.setAttribute("value", this.description);
       descripInput.setAttribute("id", "description");
       editDiv.appendChild(descripInput);
-
       
-
-
       const priority = document.createElement("select");
       priority.style.margin = "0px auto 5px 33px"
       priority.id = "priority";
@@ -217,7 +213,6 @@ function escEdit(){
 }
 
 function saveEdit(key){
-  
   const editDiv = document.getElementById("editDiv")
   const title = document.getElementById("title")
   const description = document.getElementById("description")
@@ -225,11 +220,11 @@ function saveEdit(key){
   const categorie = document.getElementById("catNameinfo")
   const dueDate = document.getElementById("dateDue")
   let toDoArr = getMyToDoList()
-        editDiv.style.display = "none";
-        toDoArr[key].title = title.value
-        toDoArr[key].description = description.value
-        toDoArr[key].dueDate = dueDate.value
-        toDoArr[key].priority = priority.value
-        toDoArr[key].categorie = categorie.value
-        setMyToDoList(toDoArr)
+  editDiv.style.display = "none";
+  toDoArr[key].title = title.value
+  toDoArr[key].description = description.value
+  toDoArr[key].dueDate = dueDate.value
+  toDoArr[key].priority = priority.value
+  toDoArr[key].categorie = categorie.value
+  setMyToDoList(toDoArr)
 }

@@ -38,26 +38,18 @@ const escPrj = function(){
 
 const savePrj = function(event){
 	const inputDiv = document.getElementById("inputDiv");
-	if (inputDiv.style.display == "block"){
-		const title = document.getElementById("title").value;
-		const description = document.getElementById("description").value;
-		const dateDue = document.getElementById("dateDue").value;
-		const priority = document.getElementById("priority").value;
-		const catName =  document.getElementById("catNameinfo").value;
-		inputDiv.style.display = "none";
-		const butSave = document.getElementById("savePrj");
-
-		const prj = new Project(title, description, dateDue ,priority,catName);
-		let myToDoList = getMyToDoList();
-		let categories = getMyCategories();
-		console.log("myToDoList before:"+myToDoList)
-		myToDoList.push(prj);
-		console.log("myToDoList after:"+myToDoList)
-		setMyToDoList (myToDoList);
-		renderProjects(catName)
-		//console.log(prj);
-	}
-	
-  // return true
+	const title = document.getElementById("title").value;
+	const description = document.getElementById("description").value;
+	const dateDue = document.getElementById("dateDue").value;
+	const priority = document.getElementById("priority").value;
+	const catName =  document.getElementById("catNameinfo").value;
+	inputDiv.style.display = "none";
+	const prj = new Project(title, description, dateDue ,priority,catName);
+	let myToDoList = getMyToDoList();
+	let categories = getMyCategories();
+	myToDoList.push(prj);
+	setMyToDoList (myToDoList);
+	renderProjects(catName)
 }
+
 export default createToDo;

@@ -7,12 +7,9 @@ import { renderProjects } from './render-prj';
 
 let categories = getMyCategories();
 
-var renderPage = function (){
-  
+var renderPage = function () {
   createHeader()
-  // createNavigation()
   renderAllProjects()
-  // createBodyItem()
   createAddPrjButton()
   renderToDoFirstPrj()
 }
@@ -21,16 +18,6 @@ function createHeader(){
   const but1 = document.getElementById('but1')
   but1.addEventListener('click', () => addCategorie());
 }
-
-// function createNavigation(){
-//   const content = document.getElementById('container');
-//   const newDiv1 = document.createElement("div");
-//   newDiv1.id = "navCategories";
-//   newDiv1.style.width = "80%";
-//   newDiv1.style.height= "50px";
-//   newDiv1.style.margin = "20px auto";
-//   content.appendChild(newDiv1);
-// }
 
 function renderAllProjects(){
   const navCategories = document.getElementById("navCategories");
@@ -51,23 +38,16 @@ function renderAllProjects(){
 
 }
 
-// function createBodyItem(){
-//   const content = document.getElementById('container');
-//   const newDiv2 = document.createElement("div");
-//   newDiv2.id = "body-item";
-//   content.appendChild(newDiv2);
-// }
-
-function renderToDoFirstPrj(){
-  if (categories.length > 0){
-  let catName  = categories[0];
-  renderProjects(catName);
+function renderToDoFirstPrj() {
+  if (categories.length > 0) {
+    let catName  = categories[0];
+    renderProjects(catName);
   }
 }
 
 function createAddPrjButton(){
   if (categories.length > 0){
-  if (document.getElementById("addPrj") === null){
+    if (document.getElementById("addPrj") === null) {
       const projectCat = document.getElementById("header");
       const prj = document.createElement("button");
       prj.id = "addPrj";
@@ -75,6 +55,6 @@ function createAddPrjButton(){
       projectCat.appendChild(prj);
       prj.addEventListener('click', () => createToDo());
     }
-   } 
+  } 
 }
 export default renderPage
