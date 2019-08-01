@@ -21,7 +21,7 @@ const delCategorie = function(){
 			let option  = document.createElement("option");
 			option.innerHTML = val;
 			option.setAttribute("value",val);
-			option.setAttribute("id",val);
+			//option.setAttribute("id",val);
 			catNameinfo.appendChild(option)
 		});
 
@@ -45,8 +45,8 @@ const delCategorie = function(){
 		butEsc.addEventListener('click', () => escDelCat());
 	}else {
 		const inputDiv = document.getElementById("winDelCat");
-		const but1 = document.getElementById("deleteCat");
-		const but2 = document.getElementById("escDelCat");
+		const butDel = document.getElementById("deleteCat");
+		const butEsc = document.getElementById("escDelCat");
 		inputDiv.style.display = "block";
 
 		var categories = getMyCategories();
@@ -61,11 +61,11 @@ const delCategorie = function(){
 			let option  = document.createElement("option");
 			option.innerHTML = val;
 			option.setAttribute("value",val);
-			option.setAttribute("id",val);
+			//option.setAttribute("id",val);
 			catNameinfo.appendChild(option)
 		});
-		but1.addEventListener('click', () => confDelCat());
-		but2.addEventListener('click', () => escDelCat());
+		butDel.addEventListener('click', () => confDelCat());
+		butEsc.addEventListener('click', () => escDelCat());
 	}
 	
 	

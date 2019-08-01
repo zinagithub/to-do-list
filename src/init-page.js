@@ -16,7 +16,9 @@ var renderPage = function () {
 
 function createHeader(){
   const but1 = document.getElementById('but1')
+  const but2 = document.getElementById('but2')
   but1.addEventListener('click', () => addCategorie());
+  but2.addEventListener('click', () => delCategorie());
 }
 
 function renderAllProjects(){

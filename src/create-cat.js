@@ -9,20 +9,23 @@ const createCategory = function (){
 	const container = document.getElementById("container");
 	const saveBut = document.getElementById("saveCat");
 	const catName = document.getElementById("catName").value;
-	console.log("catName "+catName)
+	//console.log("catName "+catName)
 	winCat.style.display = "none";
 	//saveBut.removeEventListener('click', () => createCategory())
 	const navCategories = document.getElementById("navCategories");
 	
 	if (document.getElementById(catName)==null){
 		const item = document.createElement("button");
+		console.log("catName "+catName)
 		item.id = catName;
 		item.innerHTML = catName;
 		item.classList.add("catButton")
 		navCategories.appendChild(item);
 		var categories = getMyCategories();
 		categories.push(catName);
+		console.log("after push catname : "+categories)
 		setCategories(categories);
+		console.log("after setting catname : "+categories)
 		changeCatColor(catName)
 		renderProjects(catName)
 		if (document.getElementById("addPrj")== null){
