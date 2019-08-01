@@ -61,7 +61,7 @@ body{
     border-radius :5px;
 }*/
 
-#inputDiv, #editDiv {
+#editDiv {
     width :400px;
     height :300px;
     background: orange;
@@ -69,7 +69,6 @@ body{
     top : 70px;
     left :30%;
     border-radius : 15px;
-    display : "none"
 }
 
 #inputDiv p, #editDiv p{
@@ -102,6 +101,66 @@ td {
     margin: 20px auto;
 }
 
+
+
+.project-form {
+    position: absolute;
+    left: 35%;
+    background: yellow;
+    padding: 10px 30px 40px 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    /*margin: 0 auto*/
+}
+
+.to-do-form {
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    height: 330px;
+    background: orange;
+    position :fixed;
+    top : 70px;
+    left :35%;
+    border-radius : 15px;
+    padding: 0 10px 20px 10px; 
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin: 10px;
+}
+
+form button {
+    font-size: 14px;
+    padding: 5px 10px;
+    background: blue;
+    border-radius: 5px;
+    border: black;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0808b3;
+}
+
 .hidden {
     display: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.options {
+    margin: 0 10px;
 }

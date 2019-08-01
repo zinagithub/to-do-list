@@ -9,7 +9,7 @@ const createToDo = function () {
 
 const inputToDo = function () {
 	const inputDiv = document.getElementById("inputDiv")
-	inputDiv.style.display = "block";
+	inputDiv.style.display = "flex";
 	const catNameinfo = document.getElementById("catNameinfo");
 	const butSave = document.getElementById("savePrj");
 	const butEsc = document.getElementById("escPrj");

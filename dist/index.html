@@ -18,33 +18,29 @@
         <div id='navCategories' class="nav-categories">
         </div>
         <div id='body-item'>
-<!--           <table id='table'>
-            <tr id='tableDescriptionRow'>
-              <td>Priority</td>
-              <td>Title</td>
-              <td>Description</td>
-              <td>Due date</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table> -->
         </div>
-        <form id='inputDiv' class="hidden">
+        <form id='inputDiv' class="to-do-form hidden">
           <p>Add To Do</p>
           <input type="text" name="title" size='30' placeholder="Enter the title" id='title' required>
           <input type="text" name="description" size='30' placeholder="Description" id='description'>
-          <select id='priority' required>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-          <select id='catNameinfo'>
-          </select>
+          <div class="options">
+            <select id='priority' required>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+            <select id='catNameinfo' class="float-right">
+            </select>
+          </div>
           <input type="date" name="date" id='dateDue'>
-          <button type="submit" id='savePrj'>Save</button>
-          <button type='button' id='escPrj'>Cancel</button>
+          <div class="flex">
+            <button type="submit" id='savePrj'>Save</button>
+            <button type='button' id='escPrj'>Cancel</button>
+          </div>
+          
+          
         </form>
-        <form id='winCategory' class="hidden">
+        <form id='winCategory' class="hidden project-form">
           <p>Add Project</p>
           <input id='catName' type="text" placeholder="Name" name="name" size="30" required>
           <button type="button" id='saveCat'>Save</button>
