@@ -21,10 +21,10 @@ const inputToDo = function () {
 		let option  = document.createElement("option");
 		option.innerHTML = val;
 		option.setAttribute("value",val);
-		option.setAttribute("id",val);
+		//option.setAttribute("id",val);
 		catNameinfo.appendChild(option)
 	});
-	butSave.addEventListener('click', () => savePrj(),false);
+	butSave.addEventListener('click', () => savePrj());
 	butEsc.addEventListener('click', () => escPrj());
 		
 }
@@ -38,6 +38,7 @@ const escPrj = function(){
 
 const savePrj = function(event){
 	const inputDiv = document.getElementById("inputDiv");
+	if (inputDiv.style.display == "flex"){
 	const title = document.getElementById("title").value;
 	const description = document.getElementById("description").value;
 	const dateDue = document.getElementById("dateDue").value;
@@ -50,6 +51,7 @@ const savePrj = function(event){
 	myToDoList.push(prj);
 	setMyToDoList (myToDoList);
 	renderProjects(catName)
+	}
 }
 
 export default createToDo;

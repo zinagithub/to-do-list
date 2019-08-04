@@ -54,22 +54,26 @@ export default class Project {
     }
     
     const row2 = document.createElement('tr')
-    //row2.id = key.toString()+this.categorie
+    row2.id = key.toString()+"row2"
     table.appendChild(row2)
     const col10 = document.createElement('td')
+    col10.id = key.toString()+"priority"
     col10.innerHTML = this.priority
     row2.appendChild(col10)
 
     const col11 = document.createElement('td')
+    col11.id  = key.toString()+"title"
     col11.innerHTML = this.title
     row2.appendChild(col11)
 
     const col22 = document.createElement('td')
+    col22.id = key.toString()+ "description"
     col22.innerHTML = this.description
     row2.appendChild(col22)
 
 
     const col33 = document.createElement('td')
+    col33.id = key.toString()+"dueDate"
     col33.innerHTML = this.dueDate
     row2.appendChild(col33)
 
@@ -88,7 +92,7 @@ export default class Project {
   }
 
   editToDo(key) {
-    
+    console.log("title : "+this.title,this.categorie)
     if (document.getElementById("editDiv") === null) {
       const content = document.getElementById('container');
       const editDiv = document.createElement("div");
@@ -106,7 +110,7 @@ export default class Project {
       titleInput.setAttribute("type", "text");
       titleInput.setAttribute("size", "30");
       titleInput.setAttribute("value", this.title);
-      titleInput.setAttribute("id", "title");
+      titleInput.setAttribute("id", "edTitle");
       titleInput.setAttribute("required", true);
 
       editDiv.appendChild(titleInput);
@@ -116,22 +120,22 @@ export default class Project {
       descripInput.setAttribute("size", "30");
       descripInput.setAttribute("type", "text");
       descripInput.setAttribute("value", this.description);
-      descripInput.setAttribute("id", "description");
+      descripInput.setAttribute("id", "edDescription");
       editDiv.appendChild(descripInput);
       
       const priority = document.createElement("select");
       priority.style.margin = "0px auto 5px 33px"
-      priority.id = "priority";
+      priority.id = "edPriority";
       const height = document.createElement("option");
       const medium = document.createElement("option");
       const low = document.createElement("option");
-      height.innerHTML = "Height";
+      height.innerHTML = "height";
       height.setAttribute("value","height");
 
-      medium.innerHTML = "Medium";
+      medium.innerHTML = "medium";
       medium.setAttribute("value","medium");
 
-      low.innerHTML = "Low";
+      low.innerHTML = "low";
       low.setAttribute("value","low");
 
       editDiv.appendChild(priority);
@@ -142,7 +146,7 @@ export default class Project {
 
       var categories = getMyCategories();
       const catNameinfo = document.createElement("select");
-      catNameinfo.id = "catNameinfo";
+      catNameinfo.id = "edCatNameinfo";
       catNameinfo.style.margin = "0 auto 5px 5px"
     
       categories.forEach(function(val){
@@ -150,7 +154,7 @@ export default class Project {
         let option  = document.createElement("option");
         option.innerHTML = val;
         option.setAttribute("value",val);
-        option.setAttribute("id",val);
+        //option.setAttribute("id",val);
         catNameinfo.appendChild(option)
       });
 
@@ -160,7 +164,7 @@ export default class Project {
       datePrj.style.margin = "0 auto 5px 5px"
       datePrj.setAttribute("type", "date");
       datePrj.setAttribute("value", this.dueDate);
-      datePrj.setAttribute("id", "dateDue");
+      datePrj.setAttribute("id", "edDateDue");
       editDiv.appendChild(datePrj);
 
 
@@ -183,24 +187,36 @@ export default class Project {
       const editDiv = document.getElementById("editDiv")
       editDiv.style.display = "block";
     
-      const title = document.getElementById("title")
+      const title = document.getElementById("edTitle")
       title.innerHTML = this.title
       title.value = this.title
 
-      const description = document.getElementById("description")
+      const description = document.getElementById("edDescription")
       description.innerHTML = this.description
       description.value = this.description
 
-      const priority = document.getElementById("priority")
+      const priority = document.getElementById("edPriority")
       priority.value = this.priority
 
-      const categorie = document.getElementById("catNameinfo")
+      const categorie = document.getElementById("edCatNameinfo")
+      categorie.innerHTML = ""
+      var categories = getMyCategories();
+      categories.forEach(function(val){
+        
+        let option  = document.createElement("option");
+        option.innerHTML = val;
+        option.setAttribute("value",val);
+        //option.setAttribute("id",val);
+        categorie.appendChild(option)
+      });
       categorie.value = this.categorie
 
-      const dueDate = document.getElementById("dateDue")
+      const dueDate = document.getElementById("edDateDue")
       dueDate.value = this.dueDate
 
       const butSave = document.getElementById("editPrj");
+      butSave.addEventListener('click',() =>saveEdit(key))
+
    }
   }
   
@@ -213,18 +229,37 @@ function escEdit(){
 }
 
 function saveEdit(key){
+  console.log("")
   const editDiv = document.getElementById("editDiv")
-  const title = document.getElementById("title")
-  const description = document.getElementById("description")
-  const priority = document.getElementById("priority")
-  const categorie = document.getElementById("catNameinfo")
-  const dueDate = document.getElementById("dateDue")
+  const title = document.getElementById("edTitle")
+  const description = document.getElementById("edDescription")
+  const priority = document.getElementById("edPriority")
+  const categorie = document.getElementById("edCatNameinfo")
+  const dueDate = document.getElementById("edDateDue")
   let toDoArr = getMyToDoList()
   editDiv.style.display = "none";
+  console.log("title : "+title.value)
+  
+  const titleKey = document.getElementById(key.toString()+"title")
+  titleKey.innerHTML = title.value
   toDoArr[key].title = title.value
+
+  const descKey = document.getElementById(key.toString()+"description")
+  descKey.innerHTML = description.value
   toDoArr[key].description = description.value
+
+  const dateKey = document.getElementById(key.toString()+"dueDate")
   toDoArr[key].dueDate = dueDate.value
+  dateKey.innerHTML = dueDate.value
+
+  const priorKey = document.getElementById(key.toString()+"priority")
   toDoArr[key].priority = priority.value
+  priorKey.innerHTML = priority.value
+
+  //const catKey = document.getElementById(key.toString()+"categorie")
   toDoArr[key].categorie = categorie.value
+  toDoArr[key].priority = priority.value
   setMyToDoList(toDoArr)
+
+
 }
