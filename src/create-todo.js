@@ -21,7 +21,6 @@ const inputToDo = function () {
 		let option  = document.createElement("option");
 		option.innerHTML = val;
 		option.setAttribute("value",val);
-		//option.setAttribute("id",val);
 		catNameinfo.appendChild(option)
 	});
 	butSave.addEventListener('click', () => savePrj());
@@ -31,9 +30,8 @@ const inputToDo = function () {
 
 const escPrj = function(){
 	const inputDiv = document.getElementById("inputDiv");
-	// removeEventListener('click', () => escPrj());
 	inputDiv.style.display = "none";
-	//return false
+
 }
 
 const savePrj = function(event){

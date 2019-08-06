@@ -35,7 +35,7 @@ function renderAllProjects(){
 
     if (categories.length > 0){
       const bt = document.getElementById(categories[0]);
-      bt.style.background = "red";
+      bt.style.background = "#900";
     }
 
 }

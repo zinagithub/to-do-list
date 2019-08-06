@@ -5,8 +5,9 @@ body{
 .headerStyle {
 	width :80%;
     height:50px;
-    border :1px solid #900;
-    border-radius :15px;
+    /*border :1px solid #900;
+    border-radius :15px;*/
+    border-bottom: 1px solid #900;
     margin : 0 auto;
     color :black;
  }
@@ -22,14 +23,17 @@ body{
     float : right;
     margin : 3px 10px auto;
     padding : 10px;
+    background: #900;
+    color : white;
 
 }
 .catButton {
 	float :left;
     font-size : 15px;
-    margin : 3px auto;
+    margin : 3px 3px auto;
     padding : 10px;
-    border-radius : 15px;
+    border-radius : 5px;
+
 }
 #body-item{
 	width : 80%;
@@ -39,20 +43,21 @@ body{
     border : 1px solid #900;
     border-radius : 15px;
 }
-#winCategorie , #winDelCat{
+/*#winCategorie , #winDelCat{
 	width : 350px;
 	height :200px;
-	background :orange;
+	background :white;
     position :fixed;
 	top :70px;
 	left :40%;
 	border-radius :5px;
-}
-#winCategorie p {
+    border : 1px solid #900;
+}*/
+/*#winCategorie p {
 	font-size :30px;
 	color :white;
 	text-align :center;
-}
+}*/
 /*.catShape{
 	float :left;
     font-size :15px;
@@ -64,7 +69,7 @@ body{
 #editDiv {
     width :400px;
     height :300px;
-    background: orange;
+    background: white;
     position :fixed;
     top : 70px;
     left :30%;
@@ -73,9 +78,19 @@ body{
 
 #inputDiv p, #editDiv p{
     font-size : 30px;
-    color : white;
+    color : #900;
     padding : 10px;
     text-align :center;
+}
+#savePrj , #escPrj, #saveCat , #escCat {
+    background: #900;
+    float : right;
+    margin-right : 5px;
+}
+#deleteCat, #escDelCat {
+    background: #900;
+    float : right;
+    margin : auto 15px;
 }
 table {
   width:100%;
@@ -92,7 +107,7 @@ td {
 
 }
 .cut :hover , .update :hover{
-	color : red;
+	color : #900;
 }
 
 .nav-categories {
@@ -101,14 +116,16 @@ td {
     margin: 20px auto;
 }
 
-
+#but1:hover , #but2:hover ,#addPrj:hover{
+    background: blue
+}
 
 .project-form {
     position: absolute;
     left: 35%;
-    background: yellow;
+    background: /*yellow*/white;
     padding: 10px 30px 40px 30px;
-    border: 1px solid black;
+    border: 1px solid /*black*/#900;
     border-radius: 5px;
     /*margin: 0 auto*/
 }
@@ -119,12 +136,14 @@ td {
     align-items: stretch;
     justify-content: space-around;
     height: 330px;
-    background: orange;
+    background: white;
     position :fixed;
     top : 70px;
     left :35%;
+    border : 1px solid #900;
     border-radius : 15px;
     padding: 0 10px 20px 10px; 
+    /*color : #900;*/
 }
 
 .flex {
@@ -142,11 +161,12 @@ input {
 form button {
     font-size: 14px;
     padding: 5px 10px;
-    background: blue;
+    /*background: blue;*/
     border-radius: 5px;
     border: black;
     color: white;
     cursor: pointer;
+    margin-top: 12px
 }
 
 form button:hover {

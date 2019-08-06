@@ -3,25 +3,23 @@ import {renderProjects } from './render-prj';
 
 const delCategorie = function(){
 	const content = document.getElementById('container');
-	if (document.getElementById("winDelCat")== null){
+	/*if (document.getElementById("winDelCat")== null){
 		const inputDiv = document.createElement("div");
 		inputDiv.id = "winDelCat";
+		inputDiv.classList.add("project-form")
 		inputDiv.style.display = "block";
 		content.appendChild(inputDiv);
 
 
 		var categories = getMyCategories();
-		//console.log(categories);
 		const catNameinfo = document.createElement("select");
 		catNameinfo.id = "PrjToDel";
 		catNameinfo.style.margin = "0 auto 5px 5px"
-		//catNameinfo.style.display = "block"
 		categories.forEach(function(val){
 			
 			let option  = document.createElement("option");
 			option.innerHTML = val;
 			option.setAttribute("value",val);
-			//option.setAttribute("id",val);
 			catNameinfo.appendChild(option)
 		});
 
@@ -43,30 +41,25 @@ const delCategorie = function(){
 		butEsc.innerHTML = "Cancel";
 		inputDiv.appendChild(butEsc);
 		butEsc.addEventListener('click', () => escDelCat());
-	}else {
+	}else {*/
 		const inputDiv = document.getElementById("winDelCat");
 		const butDel = document.getElementById("deleteCat");
 		const butEsc = document.getElementById("escDelCat");
 		inputDiv.style.display = "block";
 
 		var categories = getMyCategories();
-		//console.log(categories);
 		const catNameinfo = document.getElementById("PrjToDel");
 		catNameinfo.innerHTML = ""
-		//catNameinfo.id = "catNameinfo";
-		//catNameinfo.style.margin = "0 auto 5px 5px"
-		//catNameinfo.style.display = "block"
 		categories.forEach(function(val){
 			
 			let option  = document.createElement("option");
 			option.innerHTML = val;
 			option.setAttribute("value",val);
-			//option.setAttribute("id",val);
 			catNameinfo.appendChild(option)
 		});
 		butDel.addEventListener('click', () => confDelCat());
 		butEsc.addEventListener('click', () => escDelCat());
-	}
+	//}
 	
 	
 
@@ -80,14 +73,11 @@ const confDelCat = function()
 	if (confirm("Are you sure to Remove "+catNameinfo)){
 		let categories = getMyCategories()
 		let elmToDel = navCategories.removeChild(child);
-		//alert(categories.indexOf(catNameinfo))
 		categories.splice(categories.indexOf(catNameinfo),1)
-		
 		setCategories(categories)
-
 		let allToDo = getMyToDoList()
   		console.log(allToDo)
-
+        //delete all to do associted to the project
   		for(var i = allToDo.length - 1; i >= 0; i--) {
     			if(allToDo[i].categorie == catNameinfo) {
        				allToDo.splice(i, 1);

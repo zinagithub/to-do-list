@@ -13,10 +13,12 @@ export const changeCatColor = (catName) => {
   categories.forEach(function(val){
       let elm = document.getElementById(val);
       elm.style.background = "white";
+      elm.style.color = "black"
   });
   if (categories.length > 0){
       const bt = document.getElementById(catName);
-      bt.style.background = "red";
+      bt.style.background = "#900";
+      bt.style.color = "white"
   }
 }
 
@@ -40,15 +42,9 @@ const updateFunction = (catName) => {
   for (var i =0;i<updateRowToDo.length;i++){
     let elmToUpdate = updateRowToDo[i].id.toString().replace("update","")
     updateRowToDo[i].addEventListener('click', function() {
+      console.log("elm to update: "+elmToUpdate)
     var toUpdate = allToDo[elmToUpdate]
     toUpdate.editToDo(elmToUpdate);
-    // setMyToDoList(allToDo);
-    //const newTd = document.getElementById(elmToUpdate+"update")
-    //newTd.parentNode.firstChild = toUpdate.priority
-    //renderTabToDo(catName)
-    //const bodyItem = document.getElementById("body-item");
-    //bodyItem.innerHTML= "";
-
     })
   }
 }
