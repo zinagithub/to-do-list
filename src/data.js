@@ -12,9 +12,7 @@ export default class Project {
     this.categorie = categorie
   }
 
-  delToDo(key) {
-    
-  }
+  
   renderProject(key) {
     const bodyItem = document.getElementById("body-item");
     
@@ -95,101 +93,8 @@ export default class Project {
     row2.appendChild(col55)
   }
 
-  editToDo(key) {
-    let lastCat = this.categorie
-    if (document.getElementById("editDiv") === null) {
-      const content = document.getElementById('container');
-      const editDiv = document.createElement("div");
-      editDiv.id = "editDiv";
-      editDiv.style.display = "block";
-      editDiv.style.border = "1px solid #900"
-
-      const titleBox = document.createElement("p");
-      editDiv.appendChild(titleBox)
-      titleBox.innerHTML = "Edit to-do"
-
-      content.appendChild(editDiv);
-      const titleInput = document.createElement("input");
-      titleInput.style.display = "block"
-      titleInput.style.margin = "0 auto 5px auto"
-      titleInput.setAttribute("type", "text");
-      titleInput.setAttribute("size", "30");
-      titleInput.setAttribute("value", this.title);
-      titleInput.setAttribute("id", "edTitle");
-      titleInput.setAttribute("required", true);
-
-      editDiv.appendChild(titleInput);
-      const descripInput = document.createElement("input");
-      descripInput.style.display = "block"
-      descripInput.style.margin = "0 auto 5px auto"
-      descripInput.setAttribute("size", "30");
-      descripInput.setAttribute("type", "text");
-      descripInput.setAttribute("value", this.description);
-      descripInput.setAttribute("id", "edDescription");
-      editDiv.appendChild(descripInput);
-      
-      const priority = document.createElement("select");
-      priority.style.margin = "0px auto 5px 33px"
-      priority.id = "edPriority";
-      const height = document.createElement("option");
-      const medium = document.createElement("option");
-      const low = document.createElement("option");
-      height.innerHTML = "height";
-      height.setAttribute("value","height");
-
-      medium.innerHTML = "medium";
-      medium.setAttribute("value","medium");
-
-      low.innerHTML = "low";
-      low.setAttribute("value","low");
-
-      editDiv.appendChild(priority);
-      priority.appendChild(height);
-      priority.appendChild(medium);
-      priority.appendChild(low);
-      priority.value = this.priority 
-
-      var categories = getMyCategories();
-      const catNameinfo = document.createElement("select");
-      catNameinfo.id = "edCatNameinfo";
-      catNameinfo.style.margin = "0 auto 5px 5px"
-    
-      categories.forEach(function(val){
-        
-        let option  = document.createElement("option");
-        option.innerHTML = val;
-        option.setAttribute("value",val);
-        catNameinfo.appendChild(option)
-      });
-
-      editDiv.appendChild(catNameinfo)
-      catNameinfo.value = this.categorie
-
-      const datePrj = document.createElement("input");
-      datePrj.style.margin = "0 auto 5px 5px"
-      datePrj.setAttribute("type", "date");
-      datePrj.setAttribute("value", this.dueDate);
-      datePrj.setAttribute("id", "edDateDue");
-      editDiv.appendChild(datePrj);
-
-
-      const butSave = document.createElement("button");
-      butSave.id = "editPrj";
-      butSave.style.margin = "20px auto 15px 100px"
-      butSave.innerHTML = "edit";
-      editDiv.appendChild(butSave);
-      butSave.addEventListener('click',() =>saveEdit(key,lastCat))
-
-      const butEsc = document.createElement("button");
-      butEsc.id = "escDelPrj";
-      butEsc.style.margin = "20px auto 15px 100px"
-      butEsc.innerHTML = "Cancel";
-      editDiv.appendChild(butEsc);
-      butEsc.addEventListener('click',() => escEdit())
-  
-    }
-    else {
-      console.log("key key : "+key)
+  editToDo(key){
+      let lastCat = this.categorie
       const editDiv = document.getElementById("editDiv")
       editDiv.style.display = "block";
     
@@ -204,27 +109,26 @@ export default class Project {
       const priority = document.getElementById("edPriority")
       priority.value = this.priority
 
-      const categorie = document.getElementById("edCatNameinfo")
-      categorie.innerHTML = ""
+      const edcategorie = document.getElementById("edCatNameinfo")
+      edcategorie.innerHTML = ""
       var categories = getMyCategories();
       categories.forEach(function(val){
         
         let option  = document.createElement("option");
         option.innerHTML = val;
         option.setAttribute("value",val);
-        categorie.appendChild(option)
+        edcategorie.appendChild(option)
       });
-      //categorie.value = this.categorie
+      edcategorie.value = this.categorie
 
       const dueDate = document.getElementById("edDateDue")
       dueDate.value = this.dueDate
       console.log("key key key "+key)
       const butSave = document.getElementById("editPrj");
       butSave.addEventListener('click',() =>saveEdit(key,lastCat))
-
-   }
+      const butEsc = document.getElementById("escEdPrj")
+      butEsc.addEventListener('click',() => escEdit())
   }
-
   
 }
 

@@ -40,6 +40,29 @@
           
           
         </form>
+
+        <form id='editDiv' class="to-do-form hidden">
+          <p>Edit to-do</p>
+          <input type="text" name="title" size='30' placeholder="Enter the title" id='edTitle' required>
+          <input type="text" name="description" size='30' placeholder="Description" id='edDescription'>
+          <div class="options">
+            <select id='edPriority' required>
+              <option value="height">height</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
+            <select id='edCatNameinfo' class="float-right">
+            </select>
+          </div>
+          <input type="date" name="date" id='edDateDue'>
+          <div >
+            <button type="submit" id='editPrj'>Save</button>
+            <button type='button' id='escEdPrj'>Cancel</button>
+          </div>
+          
+          
+        </form>
+
         <form id='winCategory' class="hidden project-form">
           <p>Add Project</p>
           <input id='catName' type="text" placeholder="Name" name="name" size="30" required>

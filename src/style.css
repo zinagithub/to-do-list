@@ -43,32 +43,10 @@ body{
     border : 1px solid #900;
     border-radius : 15px;
 }
-/*#winCategorie , #winDelCat{
-	width : 350px;
-	height :200px;
-	background :white;
-    position :fixed;
-	top :70px;
-	left :40%;
-	border-radius :5px;
-    border : 1px solid #900;
-}*/
-/*#winCategorie p {
-	font-size :30px;
-	color :white;
-	text-align :center;
-}*/
-/*.catShape{
-	float :left;
-    font-size :15px;
-  	margin :3px auto;
-  	padding :10px;
-    border-radius :5px;
-}*/
 
 #editDiv {
     width :400px;
-    height :300px;
+    height :350px;
     background: white;
     position :fixed;
     top : 70px;
@@ -82,7 +60,8 @@ body{
     padding : 10px;
     text-align :center;
 }
-#savePrj , #escPrj, #saveCat , #escCat {
+#savePrj , #escPrj, #saveCat ,
+#escCat, #editPrj, #escEdPrj {
     background: #900;
     float : right;
     margin-right : 5px;
