@@ -3,6 +3,8 @@ import Project from './data.js';
 import { renderProjects } from './render-prj';
 import { getMyCategories , getMyToDoList , setMyToDoList } from './local-storage';
 
+
+
 const createToDo = function () {
 	inputToDo();
 }
@@ -34,7 +36,7 @@ const escPrj = function(){
 
 }
 
-const savePrj = function(event){
+const savePrj = function(){
 	const inputDiv = document.getElementById("inputDiv");
 	if (inputDiv.style.display == "flex"){
 	const title = document.getElementById("title").value;
@@ -43,13 +45,15 @@ const savePrj = function(event){
 	const priority = document.getElementById("priority").value;
 	const catName =  document.getElementById("catNameinfo").value;
 	inputDiv.style.display = "none";
-	const prj = new Project(title, description, dateDue ,priority,catName);
-	let myToDoList = getMyToDoList();
-	let categories = getMyCategories();
-	myToDoList.push(prj);
-	setMyToDoList (myToDoList);
+	saveToDoData(title, description, dateDue ,priority,catName)
 	renderProjects(catName)
 	}
+}	
+function saveToDoData (title, description, dateDue ,priority,catName){
+	const prj = new Project(title, description, dateDue ,priority,catName);
+	let myToDoList = getMyToDoList();
+	myToDoList.push(prj);
+	setMyToDoList (myToDoList);
 }
 
 export default createToDo;

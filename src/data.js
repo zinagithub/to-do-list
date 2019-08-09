@@ -1,6 +1,4 @@
-import { compareAsc, format } from 'date-fns'
 import {getMyCategories , getMyToDoList , setMyToDoList} from './local-storage';
-import createToDo from './create-todo.js';
 import './style.css';
 
 export default class Project {
@@ -123,7 +121,6 @@ export default class Project {
 
       const dueDate = document.getElementById("edDateDue")
       dueDate.value = this.dueDate
-      console.log("key key key "+key)
       const butSave = document.getElementById("editPrj");
       butSave.addEventListener('click',() =>saveEdit(key,lastCat))
       const butEsc = document.getElementById("escEdPrj")
@@ -140,43 +137,46 @@ function escEdit(){
 
 const saveEdit = (e,lastCat)=>{
   if (document.getElementById("editDiv").style.display == "block"){
-    console.log("e "+e)
   const editDiv = document.getElementById("editDiv")
   const title = document.getElementById("edTitle")
   const description = document.getElementById("edDescription")
   const priority = document.getElementById("edPriority")
   const categorie = document.getElementById("edCatNameinfo")
   const dueDate = document.getElementById("edDateDue")
-  let toDoArr = getMyToDoList()
+  
   editDiv.style.display = "none";
   
   const titleKey = document.getElementById(e.toString()+"title")
   titleKey.innerHTML = title.value
-  toDoArr[e].title = title.value
 
   const descKey = document.getElementById(e.toString()+"description")
   descKey.innerHTML = description.value
-  toDoArr[e].description = description.value
+  
 
   const dateKey = document.getElementById(e.toString()+"dueDate")
-  toDoArr[e].dueDate = dueDate.value
   dateKey.innerHTML = dueDate.value
 
   const priorKey = document.getElementById(e.toString()+"priority")
-  toDoArr[e].priority = priority.value
   priorKey.innerHTML = priority.value
-
   
-  
-  toDoArr[e].priority = priority.value
   //in the case of changing the name of project remove the to do from the project
-  console.log("new cat + last cat :"+categorie.value,lastCat)
   if (categorie.value != lastCat){
     const tdToDel = document.getElementById(e+"cut") ;
       tdToDel.parentNode.innerHTML = "";
   }
-  toDoArr[e].categorie = categorie.value
-  setMyToDoList(toDoArr)
+
+
+  saveEditData(e,title.value,description.value,dueDate.value,priority.value,categorie.value)
+  }
+  function saveEditData(e,title,description,dueDate,priority,categorie){
+    console.log(e,title,description,dueDate,priority,categorie)
+    let toDoArr = getMyToDoList()
+    toDoArr[e].title = title
+    toDoArr[e].description = description
+    toDoArr[e].dueDate= dueDate
+    toDoArr[e].priority = priority
+    toDoArr[e].categorie = categorie
+    setMyToDoList(toDoArr)
 
   }
 }

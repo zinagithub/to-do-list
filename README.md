@@ -2,7 +2,7 @@
  The Odin Project - JavaScript project: Todo List
  
  Assignment: https://www.theodinproject.com/courses/javascript/lessons/todo-list
- Author: Talaa Zina & @Filipp Dmytriyenko</a>
+ Authors: Talaa Zina & Filipp Dmytriyenko</a>
 
 # Prerequisities
 	node 

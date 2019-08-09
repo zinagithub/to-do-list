@@ -1,5 +1,5 @@
 import { setMyToDoList, getMyToDoList, getMyCategories } from './local-storage';
-import Project from './data.js'
+
 
 export  const renderProjects = (catName) => {
   changeCatColor(catName)   
@@ -26,8 +26,8 @@ const delFunction = () => {
   var allToDo = getMyToDoList();
   var delRowToDo = document.getElementsByClassName("cut");
   for (var i =0;i<delRowToDo.length;i++){
-    let elmToCut = delRowToDo[i].id.toString().replace("cut","");
-    delRowToDo[i].addEventListener('click', function() {
+      let elmToCut = delRowToDo[i].id.toString().replace("cut","");
+      delRowToDo[i].addEventListener('click', function() {
       const tdToDel = document.getElementById(elmToCut+"cut") ;
       tdToDel.parentNode.innerHTML = "";
       allToDo.splice(elmToCut,1);
@@ -36,13 +36,12 @@ const delFunction = () => {
   }
 }
 
-const updateFunction = (catName) => {
+const updateFunction = () => {
   var allToDo = getMyToDoList();
   var updateRowToDo = document.getElementsByClassName("update");
   for (var i =0;i<updateRowToDo.length;i++){
     let elmToUpdate = updateRowToDo[i].id.toString().replace("update","")
     updateRowToDo[i].addEventListener('click', function() {
-      console.log("elm to update: "+elmToUpdate)
     var toUpdate = allToDo[elmToUpdate]
     toUpdate.editToDo(elmToUpdate);
     })
