@@ -3,11 +3,9 @@ import { setCategories , getMyCategories } from './local-storage';
 import { renderProjects, changeCatColor } from './render-prj';
 
 
-const createCategory = function (){
+const createCategory = () => {
 	
 	const winCat = document.getElementById("winCategory");
-	const container = document.getElementById("container");
-	const saveBut = document.getElementById("saveCat");
 	const catName = document.getElementById("catName").value;
 	
 	winCat.style.display = "none";
@@ -20,7 +18,7 @@ const createCategory = function (){
 		item.innerHTML = catName;
 		item.classList.add("catButton")
 		navCategories.appendChild(item);
-		var categories = getMyCategories();
+		const categories = getMyCategories();
 		categories.push(catName);
 		setCategories(categories);
 		changeCatColor(catName)
@@ -31,10 +29,10 @@ const createCategory = function (){
 	        prj.id = "addPrj";
 	        prj.innerHTML = "To Do<i class='far fa-plus-square'></i>";
 	        projectCat.appendChild(prj);
-	        prj.addEventListener('click', () => createToDo());
+	        prj.addEventListener('click', createToDo);
 		}else{
 			const prj = document.getElementById("addPrj");
-			prj.addEventListener('click', () => createToDo());
+			prj.addEventListener('click', createToDo);
 		}
 		item.addEventListener('click', () => renderProjects(catName));
 	
