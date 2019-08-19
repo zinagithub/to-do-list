@@ -1,33 +1,27 @@
-//export { setCategories , getMyCategories}
-import Project from './data.js'
+import Project from './data';
 
 export const setCategories = (catArr) => {
-  let myCategories_serialized =JSON.stringify(catArr)
-  localStorage.setItem("categories",myCategories_serialized);
-}
+  const myCategoriesSerialized = JSON.stringify(catArr);
+  localStorage.setItem('categories', myCategoriesSerialized);
+};
 
 export const getMyCategories = () => {
-  let myCategories_deserialized = []
-  if (localStorage.getItem("categories")) {
-    myCategories_deserialized = JSON.parse(localStorage.getItem("categories"));
+  let myCategoriesDeserialized = [];
+  if (localStorage.getItem('categories')) {
+    myCategoriesDeserialized = JSON.parse(localStorage.getItem('categories'));
   }
-  return myCategories_deserialized
-}
+  return myCategoriesDeserialized;
+};
 
 export const setMyToDoList = (myToDoList) => {
-  //if (localStorage.getItem("myToDoList"))
-    //localStorage.removeItem("myToDoList");
-
-  let myToDoList_serialized =JSON.stringify(myToDoList)
-  localStorage.setItem("myToDoList",myToDoList_serialized);
-}
+  const myToDoListSerialized = JSON.stringify(myToDoList);
+  localStorage.setItem('myToDoList', myToDoListSerialized);
+};
 
 export const getMyToDoList = () => {
-  let myToDoList_deserialized = [];
-  if (localStorage.getItem("myToDoList")) {
-    myToDoList_deserialized = JSON.parse(localStorage.getItem("myToDoList")).map((toDo) =>
-      Object.assign(new Project(), toDo),
-    );
+  let myToDoListDeserialized = [];
+  if (localStorage.getItem('myToDoList')) {
+    myToDoListDeserialized = JSON.parse(localStorage.getItem('myToDoList')).map((toDo) => Object.assign(new Project(), toDo));
   }
-	return myToDoList_deserialized
-}
+  return myToDoListDeserialized;
+};

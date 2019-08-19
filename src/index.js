@@ -1,5 +1,5 @@
 import './style.css';
-import renderPage from './init-page.js';
+import renderPage from './init-page';
 
 
 renderPage();
