@@ -3,9 +3,82 @@
   <head>
   	<meta charset="utf-8">
     <title>To-Do-List</title>
-    <link rel="stylesheet" type="text/css" href="/src/style.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+	  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <link rel="stylesheet" type="text/css" href="../src/style.css">
   </head>
+
   <body>
+    <div id="container">
+      <div class='headerStyle' id='header'>
+        <p>To Do List</p>
+        <button id='but1'>Project <i class='far fa-plus-square'></i></button>
+        <button id='but2'>Project <i class='far fa-minus-square'></i></button>
+      </div>
+        <div id='navCategories' class="nav-categories">
+        </div>
+        <div id='body-item'>
+        </div>
+        <form id='inputDiv' class="to-do-form hidden">
+          <p>Add To Do</p>
+          <input type="text" name="title" size='30' placeholder="Enter the title" id='title' required>
+          <input type="text" name="description" size='30' placeholder="Description" id='description'>
+          <div class="options">
+            <select id='priority' required>
+              <option value="high">high</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
+            <select id='catNameinfo' class="float-right">
+            </select>
+          </div>
+          <input type="date" name="date" id='dateDue'>
+          <div >
+            <button type="submit" id='savePrj'>Save</button>
+            <button type='button' id='escPrj'>Cancel</button>
+          </div>
+          
+          
+        </form>
+
+        <form id='editDiv' class="to-do-form hidden">
+          <p>Edit to-do</p>
+          <input type="text" name="title" size='30' placeholder="Enter the title" id='edTitle' required>
+          <input type="text" name="description" size='30' placeholder="Description" id='edDescription'>
+          <div class="options">
+            <select id='edPriority' required>
+              <option value="high">high</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
+            <select id='edCatNameinfo' class="float-right">
+            </select>
+          </div>
+          <input type="date" name="date" id='edDateDue'>
+          <div >
+            <button type="submit" id='editPrj'>Save</button>
+            <button type='button' id='escEdPrj'>Cancel</button>
+          </div>
+          
+          
+        </form>
+
+        <form id='winCategory' class="hidden project-form">
+          <p>Add Project</p>
+          <input id='catName' type="text" placeholder="Name" name="name" size="30" required>
+          <button type="button" id='saveCat'>Save</button>
+          <button type="button" id='escCat'>Cancle</button>
+        </form>
+
+
+        <form id='winDelCat' class="hidden project-form">
+          <p>Delete Project</p>
+          <select id='PrjToDel' ></select>
+          <button type="button" id='deleteCat'>Delete</button>
+          <button type="button" id='escDelCat'>Cancle</button>
+        </form>
+
+    </div>
     <script src="bundle.js"></script>
   </body>
 </html>

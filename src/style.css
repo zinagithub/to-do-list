@@ -1,3 +1,165 @@
 body{
 	background: #DDD;
 }
+
+.headerStyle {
+	width :80%;
+    height:50px;
+    /*border :1px solid #900;
+    border-radius :15px;*/
+    border-bottom: 1px solid #900;
+    margin : 0 auto;
+    color :black;
+ }
+ .headerStyle p {
+ 	text-align  :left;
+    margin-top : 5px;
+    margin-left :5px;
+    font-size :35px;
+    display : inline-block;
+ }
+.headerStyle button {
+	font-size : 15px;
+    float : right;
+    margin : 3px 10px auto;
+    padding : 10px;
+    background: #900;
+    color : white;
+
+}
+.catButton {
+	float :left;
+    font-size : 15px;
+    margin : 3px 3px auto;
+    padding : 10px;
+    border-radius : 5px;
+
+}
+#body-item{
+	width : 80%;
+    height :auto;
+    margin : -26px auto;
+    color : gray;
+    border : 1px solid #900;
+    border-radius : 15px;
+}
+
+#editDiv {
+    width :400px;
+    height :350px;
+    background: white;
+    position :fixed;
+    top : 70px;
+    left :30%;
+    border-radius : 15px;
+}
+
+#inputDiv p, #editDiv p{
+    font-size : 30px;
+    color : #900;
+    padding : 10px;
+    text-align :center;
+}
+#savePrj , #escPrj, #saveCat ,
+#escCat, #editPrj, #escEdPrj {
+    background: #900;
+    float : right;
+    margin-right : 5px;
+}
+#deleteCat, #escDelCat {
+    background: #900;
+    float : right;
+    margin : auto 15px;
+}
+table {
+  width:100%;
+}
+td {
+  padding: 15px;
+  text-align: left;
+  
+}
+.cut{
+
+}
+.update{
+
+}
+.cut :hover , .update :hover{
+	color : #900;
+}
+
+.nav-categories {
+    width: 80%;
+    height: 50px;
+    margin: 20px auto;
+}
+
+#but1:hover , #but2:hover ,#addPrj:hover{
+    background: blue
+}
+
+.project-form {
+    position: absolute;
+    left: 35%;
+    background: /*yellow*/white;
+    padding: 10px 30px 40px 30px;
+    border: 1px solid /*black*/#900;
+    border-radius: 5px;
+    /*margin: 0 auto*/
+}
+
+.to-do-form {
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    height: 330px;
+    background: white;
+    position :fixed;
+    top : 70px;
+    left :35%;
+    border : 1px solid #900;
+    border-radius : 15px;
+    padding: 0 10px 20px 10px; 
+    /*color : #900;*/
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin: 10px;
+}
+
+form button {
+    font-size: 14px;
+    padding: 5px 10px;
+    /*background: blue;*/
+    border-radius: 5px;
+    border: black;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px
+}
+
+form button:hover {
+    background-color: #0808b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.options {
+    margin: 0 10px;
+}

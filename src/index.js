@@ -1,2 +1,5 @@
 import './style.css';
-alert("Hello")
+import renderPage from './init-page';
+
+
+renderPage();
